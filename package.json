@@ -1,0 +1,28 @@
+{
+  "name": "presentation-app",
+  "version": "1.0.0",
+  "description": "A stripped-down PowerPoint alternative with Markdown support",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm run install:frontend && npm run install:backend",
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "cd frontend && npm start",
+    "dev:backend": "cd backend && npm run dev",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:backend": "cd backend && npm test",
+    "test:frontend": "cd frontend && npm test -- --watchAll=false",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "storybook": "cd frontend && npm run storybook",
+    "build-storybook": "cd frontend && npm run build-storybook"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
